@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Bangaram 💜💙 Our Little World</title>
+  <meta name="description" content="A personal digital love letter and cute romantic surprise created just for you with Bubu Dudu and cute cats. 💜 Her Purple + 💙 My Blue = 💜💙 Our World.">
+  
+  <!-- Google Fonts: Caveat (Handwritten), Outfit & Quicksand (Soft modern readable), Playfair Display (Emotional elegance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Particles -->
+  <div class="ambient-particles" aria-hidden="true">
+    <span class="particle p1">💜</span>
+    <span class="particle p2">💙</span>
+    <span class="particle p3">✨</span>
+    <span class="particle p4">⭐</span>
+    <span class="particle p5">💜</span>
+    <span class="particle p6">💙</span>
+    <span class="particle p7">✨</span>
+    <span class="particle p8">☁️</span>
+    <span class="particle p9">🌸</span>
+    <span class="particle p10">💜</span>
+  </div>
+
+  <form id="love-app" class="love-app-form">
+    <!-- ==============================================
+         PASSCODE RADIO BUTTON STATE MACHINE (Passcode: 1727)
+         Sequence: 1 -> 7 -> 2 -> 7
+         ============================================== -->
+    <!-- Step 1 inputs -->
+    <input type="radio" name="code_s1" id="s1_corr" class="hidden-radio" tabindex="-1">
+    <input type="radio" name="code_s1" id="s1_err" class="hidden-radio" tabindex="-1">
+
+    <!-- Step 2 inputs -->
+    <input type="radio" name="code_s2" id="s2_corr" class="hidden-radio" tabindex="-1">
+    <input type="radio" name="code_s2" id="s2_err" class="hidden-radio" tabindex="-1">
+
+    <!-- Step 3 inputs -->
+    <input type="radio" name="code_s3" id="s3_corr" class="hidden-radio" tabindex="-1">
+    <input type="radio" name="code_s3" id="s3_err" class="hidden-radio" tabindex="-1">
+
+    <!-- Step 4 inputs -->
+    <input type="radio" name="code_s4" id="s4_corr" class="hidden-radio" tabindex="-1">
+    <input type="radio" name="code_s4" id="s4_err" class="hidden-radio" tabindex="-1">
+
+    <!-- (proposal_yes checkbox removed — both buttons navigate via anchor links directly) -->
+
+    <!-- ==============================================
+         SECTION 1: SECRET PASSCODE SCREEN
+         ============================================== -->
+    <section id="passcode-screen" class="passcode-screen">
+      <div class="passcode-bg-stars">
+        <span class="star s1">✨</span>
+        <span class="star s2">⭐</span>
+        <span class="star s3">💜</span>
+        <span class="star s4">💙</span>
+        <span class="star s5">✨</span>
+        <span class="star s6">⭐</span>
+        <span class="star s7">☁️</span>
+      </div>
+
+      <div class="passcode-card glass-card">
+        <!-- Real Bubu Dudu Kiss Sticker -->
+        <div class="passcode-header-art">
+          <img src="stickers/bubu-dudu-kiss.gif" alt="Bubu and Dudu Kissing" class="sticker-gif-header bounce-soft">
+        </div>
+
+        <h1 class="passcode-title">A little surprise for you... 💜💙</h1>
+        <p class="passcode-subtitle">Enter the secret code ❤️</p>
+        <p class="passcode-hint">Hint: our special sequence 🔐✨</p>
+
+        <!-- Passcode 4 Dots Indicator -->
+        <div class="passcode-dots-row">
+          <div class="code-dot dot-1" data-digit="1"></div>
+          <div class="code-dot dot-2" data-digit="2"></div>
+          <div class="code-dot dot-3" data-digit="3"></div>
+          <div class="code-dot dot-4" data-digit="4"></div>
+        </div>
+
+        <!-- Wrong Attempt Alert Banner -->
+        <div class="wrong-code-alert">
+          <p class="wrong-code-text">Oopsie! That's not the secret code cutie 🥺❤️</p>
+          <button type="reset" class="btn-reset-keypad">Tap to Try Again 🔄</button>
+        </div>
+
+        <!-- The Interactive Keypad -->
+        <div class="keypad-grid">
+          <!-- Key 1 (Target for Step 1) -->
+          <div class="key-cell">
+            <span class="key-num">1</span>
+            <label for="s1_corr" class="key-lbl l1" title="1"></label>
+            <label for="s2_err" class="key-lbl l2" title="1"></label>
+            <label for="s3_err" class="key-lbl l3" title="1"></label>
+            <label for="s4_err" class="key-lbl l4" title="1"></label>
+          </div>
+
+          <!-- Key 2 (Target for Step 3) -->
+          <div class="key-cell">
+            <span class="key-num">2</span>
+            <label for="s1_err" class="key-lbl l1" title="2"></label>
+            <label for="s2_err" class="key-lbl l2" title="2"></label>
+            <label for="s3_corr" class="key-lbl l3" title="2"></label>
+            <label for="s4_err" class="key-lbl l4" title="2"></label>
+          </div>
+
+          <!-- Key 3 -->
+          <div class="key-cell">
+            <span class="key-num">3</span>
+            <label for="s1_err" class="key-lbl l1" title="3"></label>
+            <label for="s2_err" class="key-lbl l2" title="3"></label>
+            <label for="s3_err" class="key-lbl l3" title="3"></label>
+            <label for="s4_err" class="key-lbl l4" title="3"></label>
+          </div>
+
+          <!-- Key 4 -->
+          <div class="key-cell">
+            <span class="key-num">4</span>
+            <label for="s1_err" class="key-lbl l1" title="4"></label>
+            <label for="s2_err" class="key-lbl l2" title="4"></label>
+            <label for="s3_err" class="key-lbl l3" title="4"></label>
+            <label for="s4_err" class="key-lbl l4" title="4"></label>
+          </div>
+
+          <!-- Key 5 -->
+          <div class="key-cell">
+            <span class="key-num">5</span>
+            <label for="s1_err" class="key-lbl l1" title="5"></label>
+            <label for="s2_err" class="key-lbl l2" title="5"></label>
+            <label for="s3_err" class="key-lbl l3" title="5"></label>
+            <label for="s4_err" class="key-lbl l4" title="5"></label>
+          </div>
+
+          <!-- Key 6 -->
+          <div class="key-cell">
+            <span class="key-num">6</span>
+            <label for="s1_err" class="key-lbl l1" title="6"></label>
+            <label for="s2_err" class="key-lbl l2" title="6"></label>
+            <label for="s3_err" class="key-lbl l3" title="6"></label>
+            <label for="s4_err" class="key-lbl l4" title="6"></label>
+          </div>
+
+          <!-- Key 7 (Target for Step 2 and Step 4) -->
+          <div class="key-cell">
+            <span class="key-num">7</span>
+            <label for="s1_err" class="key-lbl l1" title="7"></label>
+            <label for="s2_corr" class="key-lbl l2" title="7"></label>
+            <label for="s3_err" class="key-lbl l3" title="7"></label>
+            <label for="s4_corr" class="key-lbl l4" title="7"></label>
+          </div>
+
+          <!-- Key 8 -->
+          <div class="key-cell">
+            <span class="key-num">8</span>
+            <label for="s1_err" class="key-lbl l1" title="8"></label>
+            <label for="s2_err" class="key-lbl l2" title="8"></label>
+            <label for="s3_err" class="key-lbl l3" title="8"></label>
+            <label for="s4_err" class="key-lbl l4" title="8"></label>
+          </div>
+
+          <!-- Key 9 -->
+          <div class="key-cell">
+            <span class="key-num">9</span>
+            <label for="s1_err" class="key-lbl l1" title="9"></label>
+            <label for="s2_err" class="key-lbl l2" title="9"></label>
+            <label for="s3_err" class="key-lbl l3" title="9"></label>
+            <label for="s4_err" class="key-lbl l4" title="9"></label>
+          </div>
+
+          <!-- Auxiliary Cell with Real Cat Sticker -->
+          <div class="key-cell key-aux">
+            <img src="stickers/cat-shy.gif" alt="Cute Cat" class="keypad-mini-cat">
+          </div>
+
+          <!-- Key 0 -->
+          <div class="key-cell">
+            <span class="key-num">0</span>
+            <label for="s1_err" class="key-lbl l1" title="0"></label>
+            <label for="s2_err" class="key-lbl l2" title="0"></label>
+            <label for="s3_err" class="key-lbl l3" title="0"></label>
+            <label for="s4_err" class="key-lbl l4" title="0"></label>
+          </div>
+
+          <!-- Reset Button -->
+          <div class="key-cell key-aux">
+            <button type="reset" class="key-reset-btn" title="Clear Code">
+              <span>🔄</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="passcode-footer-note">
+          <span>Made with all my love for you 🥺💜💙</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         MAIN WEBSITE CONTENT (Revealed when 1727 entered)
+         ============================================== -->
+    <main id="main-website" class="main-website">
+
+      <!-- ==============================================
+           SECTION 2: OPENING (Heyyy bangarammm)
+           ============================================== -->
+      <section id="sec-opening" class="section sec-opening fullscreen-center">
+        <div class="sec-stickers">
+          <span class="sticker-float sf1">💜</span>
+          <span class="sticker-float sf2">💙</span>
+          <span class="sticker-float sf3">✨</span>
+          <span class="sticker-float sf4">🌸</span>
+          <span class="sticker-float sf5">☁️</span>
+        </div>
+
+        <div class="opening-content glass-card animate-appear">
+          <!-- Real Bubu Dudu & Cat Stickers Row -->
+          <div class="bubu-dudu-showcase">
+            <div class="bubu-sticker-box purple-halo" title="Bubu (Her 💜)">
+              <img src="stickers/bubu-dudu-blush.gif" alt="Bubu Blush" class="showcase-gif">
+              <span class="sticker-badge purple-badge">You 💜</span>
+            </div>
+            
+            <div class="center-hug-sticker">
+              <img src="stickers/bubu-dudu-hug.gif" alt="Bubu Dudu Hugging" class="showcase-gif-center">
+              <span class="glowing-couple-heart">💜💙</span>
+            </div>
+
+            <div class="dudu-sticker-box blue-halo" title="Dudu (Me 💙)">
+              <img src="stickers/cat-cheek-rub.gif" alt="Cat Cheek Rub" class="showcase-gif">
+              <span class="sticker-badge blue-badge">Me 💙</span>
+            </div>
+          </div>
+
+          <h1 class="main-heading gradient-text">Heyyy bangarammm 💜💙</h1>
+
+          <div class="opening-text-group">
+            <p class="opening-p">I made something for you...</p>
+            <p class="opening-p">Not something expensive...</p>
+            <p class="opening-p highlight-text">Just something made with a lot of love. 🥺❤️</p>
+            <p class="opening-p">Because you deserve something made just for you.</p>
+          </div>
+
+          <div class="btn-wrap">
+            <a href="#sec-before" class="btn-romantic btn-glow">
+              <span>Open it 🥺❤️</span>
+              <span class="btn-sparkle">✨</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECTION 3: BEFORE THE LETTER
+           ============================================== -->
+      <section id="sec-before" class="section sec-before fullscreen-center">
+        <div class="sec-stickers">
+          <span class="sticker-float sf2">💌</span>
+          <span class="sticker-float sf4">💜</span>
+          <span class="sticker-float sf5">💙</span>
+        </div>
+
+        <div class="before-letter-card glass-card">
+          <!-- Real Cat Sticker Holding Heart -->
+          <div class="card-icon-art">
+            <img src="stickers/cat-love-heart.gif" alt="Cute Cat Love Heart" class="main-card-sticker bounce-soft">
+          </div>
+
+          <h2 class="sub-heading-handwritten">Before you read this...</h2>
+
+          <div class="gentle-message-box">
+            <p class="gentle-p">Please don't rush.</p>
+            <p class="gentle-p">Take your time.</p>
+            <p class="gentle-p heart-highlight">This is just a little piece of my heart that I wanted you to have. ❤️</p>
+            <div class="divider-line">
+              <span>💜</span>
+              <span>✨</span>
+              <span>💙</span>
+            </div>
+            <p class="gentle-p">So read it slowly...</p>
+            <p class="gentle-p strong-p">Because I mean every word.</p>
+          </div>
+
+          <div class="btn-wrap">
+            <a href="#sec-letter" class="btn-romantic btn-glow">
+              <span>Read my heart →</span>
+              <span class="btn-arrow">💌</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECTION 4: THE LOVE LETTER (Handwritten Paper Letter)
+           ============================================== -->
+      <section id="sec-letter" class="section sec-letter">
+        <div class="letter-page-container">
+          
+          <article class="paper-letter">
+            <!-- Real Cat Holding "I Love You" Sign -->
+            <div class="paper-header-seal">
+              <img src="stickers/cat-love-you-sign.gif" alt="Cat holding I love you sign" class="letter-top-sticker">
+            </div>
+
+            <!-- Letter Title -->
+            <header class="paper-title-area">
+              <h2 class="handwritten-letter-title">To My Bangaram 💜💙</h2>
+              <p class="letter-date-stamp">From the deepest corner of my heart • Long Distance, Never Heart Distance</p>
+              <div class="decorative-border-line"></div>
+            </header>
+
+            <!-- Complete Verbatim Telugu Love Letter (Part 1) -->
+            <div class="paper-body-text">
+              <p class="letter-para">Nuvvu ippudu upset ga unnav ani naaku telusu. Maybe ippudu neeku evaritho matladali anipinchakapovachu, konchem alone ga undi nee thoughts ni sort chesukovali anipinchachu. And I want you to know one thing first…</p>
+              <p class="letter-para para-highlight">Neeku space kavali ante, nenu aa space istaanu. ❤️</p>
+              <p class="letter-para">Ninnu force cheyyanu. Repeated ga “em ayyindi?”, “enduku matladatledu?” ani pressure pettanu. Neeku konchem time kavali ante teesuko. Silent ga undali anipiste undu. Cry cheyyali anipiste cry cheyyi. Nee feelings ni process cheskodaniki neeku entha time kavalo antha teesuko.</p>
+              <p class="letter-para">But there is one thing I can never do…</p>
+              <p class="letter-para para-highlight">Nuvvu suffer avtunte, ninnu completely alone ga vadileyadam. 🫂</p>
+              <p class="letter-para">Space ivvadam ante ninnu vadileyadam kaadu.</p>
+              <p class="letter-para">Nuvvu konchem dooranga undali anukunte, nenu aa distance ni respect chestha. Kaani naa care matram aa distance tho dooram avvadu.</p>
+              <p class="letter-para">Endukante…</p>
+              <p class="letter-para para-highlight">I love you. A lot. More than I can properly explain with words. ❤️</p>
+
+              <!-- In-Letter Bubu Dudu Sticker -->
+              <div class="in-letter-sticker-row">
+                <img src="stickers/bubu-dudu-shy.gif" alt="Bubu Dudu Shy" class="inline-sticker">
+              </div>
+
+              <p class="letter-para">Manam long distance lo unnam. Every day physically pakkana undalem. Nuvvu upset ayinappudu nee pakkana kurchuni “it's okay” ani cheppalenu. Nuvvu edustunte nee tears wipe cheyyalenu. Nuvvu tired ga unte hug ivvalenu.</p>
+              <p class="letter-para">And maybe that's the hardest part for me.</p>
+              <p class="letter-para">Ninnu miss avvadam naaku everyday feeling.</p>
+              <p class="letter-para">Konni rojulu normal ga untayi. Kaani konni moments lo ninnu chala ekkuvaga miss avthanu. Nuvvu pakkana unte entha bagundedi ani anipistundi. Nee voice vinadaniki, nee tho matladadaniki, nee little little things anni share cheskodaniki chala miss avthanu.</p>
+              <p class="letter-para">But distance unna kuda…</p>
+              <p class="letter-para para-highlight">naa care ki distance ledu. ❤️</p>
+              <p class="letter-para">Nuvvu happy ga unnapudu nenu nee happiness lo part avvalanukuntanu.</p>
+              <p class="letter-para">Nuvvu sad ga unnapudu, nee sadness ni completely solve cheyyalekapoyina, nee pakkana undalani anukuntanu.</p>
+              <p class="letter-para">Nuvvu upset ga unnapudu nenu “enduku ila unnava?” ani judge cheyyanu.</p>
+              <p class="letter-para">Instead…</p>
+              <p class="letter-para para-highlight">“Nenu em cheyyagalanu?” ani think chestha.</p>
+              <p class="letter-para">Ninnu hurt chese things naaku teliste, avi nerchukunta.</p>
+              <p class="letter-para">Nee heart ni hurt chese words enti, actions enti, situations enti… avi observe chestha, understand cheskuntanu.</p>
+              <p class="letter-para">And if something I do hurts you, nenu defend cheskodaniki mundu, ninnu ardham cheskodaniki try chestha.</p>
+              <p class="letter-para">Because loving you ante just “I love you” ani cheppadam maatrame kaadu.</p>
+              <p class="letter-para para-highlight">Ninnu ela love cheyyalo kuda nerchukovadam. ❤️</p>
+              <p class="letter-para">Nenu perfect kaadu.</p>
+              <p class="letter-para">Actually, nenu chala overthink chestha.</p>
+              <p class="letter-para">Sometimes small things kuda naa mind lo chala pedda questions ga maaripothayi. Nuvvu reply late chesthe, silent ga unte, konchem different ga behave chesthe… naa brain unnecessary things imagine cheyyadam start chestundi.</p>
+              <p class="letter-para">But I am trying.</p>
+              <p class="letter-para">Naa overthinking valla ninnu pressure cheyyakunda undadaniki try chestunna.</p>
+              <p class="letter-para">Every feeling ni immediately nee meeda pettakunda, first nenu nannu nenu calm cheskovadaniki nerchukuntunna.</p>
+              <p class="letter-para para-highlight">Because I don't want my insecurities to become your burden.</p>
+              <p class="letter-para">Nuvvu already upset ga unna time lo, naa overthinking tho ninnu inka heavy feel cheyyinchadam naaku assalu ishtam ledu.</p>
+              <p class="letter-para para-highlight">I want to become someone who gives you peace, not pressure.</p>
+              <p class="letter-para">Nuvvu “naaku konchem space kavali” ante…</p>
+              <p class="letter-para">I won't take it as “nuvvu nannu vadulukuntunnav.”</p>
+              <p class="letter-para">I will understand it as…</p>
+              <p class="letter-para para-highlight">“Nuvvu konchem breathe avvali.”</p>
+              <p class="letter-para">And I'll give you that breath.</p>
+              <p class="letter-para">But at the same time, nenu oka distance lo nunchi aina nee pakkane untaanu.</p>
+              <p class="letter-para">Nuvvu alone ga undali anukunte, okay.</p>
+              <p class="letter-para para-highlight">But alone ga suffer avvali ani matram nenu anukonu. 🫂</p>
+              <p class="letter-para">Nuvvu matladakapoyina parledhu.</p>
+              <p class="letter-para">Oka message pampakapoyina parledhu.</p>
+              <p class="letter-para">Nuvvu “I'm fine” ani cheppakapoyina parledhu.</p>
+              <p class="letter-para">Just know that somewhere, someone is still thinking about you, caring about you, and hoping you're okay.</p>
+              <p class="letter-para para-highlight">That someone is me. ❤️</p>
+              <p class="letter-para">Nuvvu strong ga undalsina avasaram ledu.</p>
+              <p class="letter-para">Naatho everything okay ani pretend cheyyalsina avasaram ledu.</p>
+              <p class="letter-para">Nuvvu tired ga undochu.</p>
+              <p class="letter-para">Nuvvu weak ga undochu.</p>
+              <p class="letter-para">Nuvvu edvochuu.</p>
+              <p class="letter-para">Nuvvu angry avvochu.</p>
+              <p class="letter-para">Nuvvu silent ga undochu.</p>
+              <p class="letter-para">Nuvvu confuse avvochu.</p>
+              <p class="letter-para para-highlight">Naa mundu nee real self ga undochu.</p>
+              <p class="letter-para">Nenu nee perfect version ni matrame love cheyyanu.</p>
+              <p class="letter-para">Nee good days ni love chestha.</p>
+              <p class="letter-para">Nee bad days ni kuda understand cheyyadaniki try chestha.</p>
+              <p class="letter-para">Nee smile ni love chestha.</p>
+              <p class="letter-para">Nee silence ni kuda respect chestha.</p>
+              <p class="letter-para">Nee happiness ni celebrate chestha.</p>
+              <p class="letter-para">Nee pain ni ignore cheyyanu.</p>
+              <p class="letter-para">And maybe nenu prati sari perfect words cheppalekapovachu…</p>
+              <p class="letter-para">Maybe sometimes nenu em cheppalo kuda teliyakapovachu…</p>
+              <p class="letter-para">But one thing will always remain the same:</p>
+              <p class="letter-para para-highlight">I will care.</p>
+              <p class="letter-para">Ninnu care cheyyadam naaku obligation la anipinchadu.</p>
+              <p class="letter-para">It's something I genuinely want to do.</p>
+              <p class="letter-para">Nuvvu naaku important kabatti.</p>
+              <p class="letter-para">Nuvvu na life lo special kabatti.</p>
+              <p class="letter-para para-highlight">Nuvvu nuvve kabatti. ❤️</p>
+              <p class="letter-para">Manam long distance lo unna…</p>
+              <p class="letter-para">Nuvvu naaku dooram kaadu.</p>
+              <p class="letter-para">Nuvvu screen opposite side lo unna person kaadu.</p>
+              <p class="letter-para para-highlight">Nuvvu daily naa thoughts lo unde person.</p>
+              <p class="letter-para">Konni times phone lo nee name kanipinchina kuda smile vastundi.</p>
+              <p class="letter-para">Nee message kosam wait chestha.</p>
+              <p class="letter-para">Nee voice vinagane mood change avvachu.</p>
+              <p class="letter-para">And yes…</p>
+              <p class="letter-para para-highlight">I miss you. A lot. Every single day.</p>
+              <p class="letter-para">But missing you doesn't make me want to control you.</p>
+              <p class="letter-para">It makes me want to understand you better.</p>
+              <p class="letter-para">So if you need space…</p>
+              <p class="letter-para">Take it, love.</p>
+              <p class="letter-para">Take all the time you need.</p>
+              <p class="letter-para">I'll respect it.</p>
+              <p class="letter-para">But whenever you feel like coming back…</p>
+              <p class="letter-para para-highlight">I'll be here.</p>
+              <p class="letter-para">No anger.</p>
+              <p class="letter-para">No “why did you leave me alone?”</p>
+              <p class="letter-para">No guilt.</p>
+              <p class="letter-para">Just…</p>
+              <p class="letter-para para-highlight">“Are you feeling a little better now?” ❤️</p>
+              <p class="letter-para">And if you're not better yet…</p>
+              <p class="letter-para">That's okay too.</p>
+              <p class="letter-para">We don't have to fix everything in one night.</p>
+              <p class="letter-para">We can take it slowly.</p>
+              <p class="letter-para">One conversation at a time.</p>
+              <p class="letter-para">One day at a time.</p>
+              <p class="letter-para">One little step at a time.</p>
+              <p class="letter-para">Because I don't want to be the person who is only there when everything is beautiful.</p>
+              <p class="letter-para para-highlight">I want to be there when life feels heavy too.</p>
+              <p class="letter-para">Nuvvu padipothe, ninnu judge cheyyakunda lift cheyyadaniki try chestha.</p>
+              <p class="letter-para">Nuvvu confuse ayithe, patience tho listen chestha.</p>
+              <p class="letter-para">Nuvvu hurt ayithe, aa pain ni understand cheyyadaniki try chestha.</p>
+              <p class="letter-para">Nenu mistake chesthe, accept chesi better avvadaniki try chestha.</p>
+              <p class="letter-para">Because for me…</p>
+              <p class="letter-para para-highlight">Loving you means choosing to understand you, again and again. ❤️</p>
+              <p class="letter-para">So please, ee one thing matram gurthupettuko…</p>
+
+              <!-- ==============================================
+                   SPECIAL REASSURANCE MOMENT (Purple-Blue Glowing Card with Real Bubu Dudu)
+                   ============================================== -->
+              <aside class="special-reassurance-card">
+                <div class="reassurance-sparkles">
+                  <span class="r-sparkle rs1">✨</span>
+                  <span class="r-sparkle rs2">💜</span>
+                  <span class="r-sparkle rs3">💙</span>
+                  <span class="r-sparkle rs4">✨</span>
+                </div>
+
+                <!-- Real Bubu Dudu Hugging Forever Sticker -->
+                <div class="reassurance-sticker-wrap">
+                  <img src="stickers/bubu-dudu-forever.gif" alt="Bubu Dudu Forever Hug" class="reassurance-main-gif">
+                </div>
+
+                <h3 class="reassurance-pretitle">Oka thing matram gurthupettuko...</h3>
+                <h2 class="reassurance-main-title">Nuvvu alone kaadu. 🫂</h2>
+
+                <div class="reassurance-promises">
+                  <div class="promise-item purple-accent">
+                    <span class="promise-bullet">💜</span>
+                    <span class="promise-text">Space kavali ante space istaanu.</span>
+                  </div>
+                  <div class="promise-item blue-accent">
+                    <span class="promise-bullet">💙</span>
+                    <span class="promise-text">Silence kavali ante silence istaanu.</span>
+                  </div>
+                  <div class="promise-item purple-accent">
+                    <span class="promise-bullet">💜</span>
+                    <span class="promise-text">Time kavali ante time istaanu.</span>
+                  </div>
+                </div>
+
+                <div class="reassurance-conclusion">
+                  <p class="reassurance-final-line">
+                    Kaani love and care kavali ante...<br>
+                    <strong class="our-world-gradient">avi ikkade unnayi. 💜💙</strong>
+                  </p>
+                  <div class="giant-glowing-heart-icon">💜💙</div>
+                </div>
+              </aside>
+
+              <!-- Letter Continuation (Part 2) -->
+              <p class="letter-para">Nuvvu naatho matladakapoyina, I still care.</p>
+              <p class="letter-para">Nuvvu naatho unna, I still care.</p>
+              <p class="letter-para">Nuvvu happy ga unna, I care.</p>
+              <p class="letter-para para-highlight">Nuvvu broken ga feel ayina, I care even more. ❤️</p>
+              <p class="letter-para">And no matter how far we are…</p>
+              <p class="letter-para para-highlight">nee pain ni completely carry cheyyalekapoyina, danini alone ga carry cheyyalsina situation lo ninnu vadalanu. 🫂</p>
+              <p class="letter-para">Nenu nee problems anni solve chestha ani promise cheyyanu.</p>
+              <p class="letter-para">Nenu every situation lo perfect ga behave chestha ani kuda promise cheyyanu.</p>
+              <p class="letter-para">But one promise istaanu…</p>
+              <p class="letter-para para-highlight">Ninnu ardham cheskodaniki try cheyyadam aapanu.</p>
+              <p class="letter-para">Ninnu hurt chese things nerchukoni, avi repeat cheyyakunda better avvadaniki try chestha.</p>
+              <p class="letter-para">Naa overthinking ni control cheskodaniki try chestha.</p>
+              <p class="letter-para">Nee space ni respect chestha.</p>
+              <p class="letter-para">Nee boundaries ni respect chestha.</p>
+              <p class="letter-para">And most importantly…</p>
+              <p class="letter-para para-highlight">Nuvvu loved, valued, and cared for ani feel ayyela cheyyadaniki naa best istaanu. ❤️</p>
+              <p class="letter-para">So right now…</p>
+              <p class="letter-para">Don't force yourself to smile.</p>
+              <p class="letter-para">Don't force yourself to talk.</p>
+              <p class="letter-para">Just breathe.</p>
+              <p class="letter-para">Rest.</p>
+              <p class="letter-para">Take your time.</p>
+              <p class="letter-para">And whenever you're ready…</p>
+              <p class="letter-para para-highlight">come back to me.</p>
+              <p class="letter-para">Oka “hey” aina chaalu.</p>
+              <p class="letter-para">Oka ❤️ aina chaalu.</p>
+              <p class="letter-para">Words lekunte kuda parledhu.</p>
+              <p class="letter-para para-highlight">Nenu ikkade unna. 🫂</p>
+              <p class="letter-para">Because even when I give you space…</p>
+              <p class="letter-para para-highlight">I will never make you feel like you've been left alone.</p>
+              <p class="letter-para">I love you.</p>
+              <p class="letter-para">I miss you.</p>
+              <p class="letter-para">I care about you.</p>
+              <p class="letter-para para-highlight">And I am still learning how to love you better every single day.</p>
+              <p class="letter-para">Not because you asked me to.</p>
+              <p class="letter-para para-highlight">Because you are worth learning for. ❤️</p>
+
+              <!-- Handwritten Signature with Real Cute Cats Sticker -->
+              <div class="paper-signature-area">
+                <div class="signature-sticker-wrap">
+                  <img src="stickers/cat-hug.gif" alt="Cute Cats Hugging" class="signature-cats-gif">
+                </div>
+                <p class="signature-tag">Always yours, through every distance & every storm,</p>
+                <p class="signature-name">Nee Blue Boy 💙</p>
+                <span class="signature-heart">💜 × 💙 = ♾️</span>
+              </div>
+            </div><!-- /paper-body-text -->
+          </article><!-- /paper-letter -->
+
+          <!-- Navigation to Next Section -->
+          <div class="letter-bottom-nav">
+            <a href="#sec-after" class="btn-romantic btn-glow">
+              <span>Continue reading... 🥺❤️</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+
+        </div><!-- /letter-page-container -->
+      </section>
+
+      <!-- ==============================================
+           SECTION 5: AFTER THE LETTER (Sleeping Stickers)
+           ============================================== -->
+      <section id="sec-after" class="section sec-after fullscreen-center">
+        <div class="sec-stickers">
+          <span class="sticker-float sf1">⭐</span>
+          <span class="sticker-float sf3">💜</span>
+          <span class="sticker-float sf5">💙</span>
+        </div>
+
+        <div class="after-letter-card glass-card">
+          <!-- Real Sleeping Bubu Dudu and Cat Stickers -->
+          <div class="card-icon-art sleeping-duo">
+            <img src="stickers/bubu-dudu-sleep.gif" alt="Bubu Dudu Sleeping" class="sleeping-sticker main-sleep">
+            <img src="stickers/cat-sleep.gif" alt="Cute Cats Sleeping" class="sleeping-sticker sub-sleep">
+          </div>
+
+          <h2 class="sub-heading-handwritten">So... ippudu oka small question ❤️</h2>
+
+          <div class="gentle-message-box">
+            <p class="gentle-p emotional-voice">
+              “Nenu entha dooram unna...<br>
+              nee pakkana undadaniki try chestune untaanu.”
+            </p>
+            <div class="divider-line">
+              <span>💜</span>
+              <span>⭐</span>
+              <span>💙</span>
+            </div>
+            <p class="gentle-p">Because loving you isn't just about the happy days...</p>
+            <p class="gentle-p strong-p">It's about staying when the days aren't easy too. 🫂</p>
+          </div>
+
+          <div class="btn-wrap">
+            <a href="#sec-music" class="btn-romantic btn-glow">
+              <span>One more thing... 🥺</span>
+              <span class="btn-sparkle">🎧</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECTION 6: MUSIC MOMENT (Paper Rings)
+           ============================================== -->
+      <section id="sec-music" class="section sec-music fullscreen-center">
+        <div class="music-floating-elements">
+          <span class="music-note mn1">🎵</span>
+          <span class="music-note mn2">🎶</span>
+          <span class="music-note mn3">💜</span>
+          <span class="music-note mn4">💙</span>
+          <span class="music-note mn5">✨</span>
+          <span class="music-note mn6">🎵</span>
+        </div>
+
+        <div class="music-card glass-card">
+          <!-- Bubu Dudu Joyful Dancing Sticker -->
+          <div class="music-header-sticker">
+            <img src="stickers/bubu-dudu-love-jump.gif" alt="Bubu Dudu Jumping Love" class="music-jump-gif">
+          </div>
+
+          <h2 class="music-title gradient-text">Put your headphones on 🎧💜💙</h2>
+          <p class="music-subtitle">This song reminds me of you.</p>
+
+          <!-- Spinning Vinyl Disc Art -->
+          <div class="vinyl-disc-container">
+            <div class="vinyl-disc spin-slow">
+              <div class="vinyl-groove g1"></div>
+              <div class="vinyl-groove g2"></div>
+              <div class="vinyl-center-label">
+                <span class="vinyl-heart-icon">💜💙</span>
+                <span class="vinyl-song-tag">Paper Rings</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="song-info-box">
+            <h3 class="song-track-name">Taylor Swift — Paper Rings</h3>
+            <p class="song-lyrics-snippet">"I like shiny things, but I'd marry you with paper rings..." 💍</p>
+          </div>
+
+          <!-- HTML5 Audio Player -->
+          <div class="audio-player-container">
+            <audio controls class="romantic-audio" preload="auto">
+              <source src="paper_rings.mp3" type="audio/mpeg">
+              <source src="Taylor_Swift_-_Paper_Rings_Official_Audio.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            
+            <div class="audio-instructions-note">
+              <span class="headphone-badge">🎧</span>
+              <span class="note-text">Press play & turn up the volume 🔊 — this is our song! ❤️</span>
+            </div>
+          </div>
+
+          <div class="btn-wrap">
+            <a href="#sec-proposal" class="btn-romantic btn-glow">
+              <span>A special question for you... 💍</span>
+              <span class="btn-sparkle">✨</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECTION 7: PROPOSAL (Will you be mine?)
+           ============================================== -->
+      <section id="sec-proposal" class="section sec-proposal fullscreen-center">
+        <div class="sec-stickers">
+          <span class="sticker-float sf1">💜</span>
+          <span class="sticker-float sf2">💙</span>
+          <span class="sticker-float sf3">✨</span>
+          <span class="sticker-float sf4">💍</span>
+          <span class="sticker-float sf5">⭐</span>
+        </div>
+
+        <div class="proposal-container">
+          <!-- Color Identity Progression -->
+          <div class="color-identity-block">
+            <div class="identity-card card-her">
+              <span class="id-tag">Her color...</span>
+              <h3 class="id-color purple-text">💜 PURPLE</h3>
+            </div>
+            
+            <span class="id-plus">+</span>
+
+            <div class="identity-card card-him">
+              <span class="id-tag">My color...</span>
+              <h3 class="id-color blue-text">💙 BLUE</h3>
+            </div>
+            
+            <span class="id-equals">=</span>
+
+            <div class="identity-card card-together">
+              <span class="id-tag">But together...</span>
+              <h3 class="id-color together-text">💜💙 US</h3>
+            </div>
+          </div>
+
+          <!-- Giant Glowing Transition Heart with Real Bubu Dudu Holding Heart Sticker -->
+          <div class="giant-proposal-heart-wrapper">
+            <div class="orbiting-ring-outer">
+              <div class="sparkling-diamond">💍</div>
+            </div>
+            <div class="giant-glowing-proposal-heart">
+              <img src="stickers/bubu-dudu-heart.gif" alt="Bubu Dudu Heart" class="proposal-bubu-heart-gif">
+            </div>
+          </div>
+
+          <!-- Emotional Suspense Texts -->
+          <div class="proposal-narrative-flow">
+            <p class="narrative-line">And now...</p>
+            <p class="narrative-line">I have one more thing to ask you.</p>
+            
+            <div class="vow-lines-group">
+              <p class="vow-line">Will you keep choosing me...</p>
+              <p class="vow-line">Through the distance...</p>
+              <p class="vow-line">Through the silly fights...</p>
+              <p class="vow-line">Through the bad days...</p>
+              <p class="vow-line">Through all the little moments...</p>
+            </div>
+
+            <h1 class="grand-proposal-question">Will you be mine? ❤️</h1>
+          </div>
+
+          <!-- The Two Buttons: Both lead to Celebration! (plain anchor links, no label conflict) -->
+          <div class="proposal-answers-row">
+            <a href="#sec-celebration" class="btn-proposal btn-yesss">
+              <span class="btn-emoji">❤️</span>
+              <span class="btn-text">YESSS ❤️</span>
+            </a>
+
+            <a href="#sec-celebration" class="btn-proposal btn-obviously">
+              <span class="btn-emoji">🥺</span>
+              <span class="btn-text">Obviouslyyy 🥺</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECTION 8: FINAL CELEBRATION
+           ============================================== -->
+      <section id="sec-celebration" class="section sec-celebration fullscreen-center">
+        <!-- Confetti & Heart Fireworks Container -->
+        <div class="celebration-fireworks-bg" aria-hidden="true">
+          <span class="confetti c1">💜</span>
+          <span class="confetti c2">💙</span>
+          <span class="confetti c3">✨</span>
+          <span class="confetti c4">🌸</span>
+          <span class="confetti c5">💜</span>
+          <span class="confetti c6">💙</span>
+          <span class="confetti c7">⭐</span>
+          <span class="confetti c8">💌</span>
+          <span class="confetti c9">🎀</span>
+          <span class="confetti c10">💜</span>
+          <span class="confetti c11">💙</span>
+          <span class="confetti c12">☁️</span>
+          <div class="firework fw-1"></div>
+          <div class="firework fw-2"></div>
+          <div class="firework fw-3"></div>
+        </div>
+
+        <div class="celebration-card glass-card">
+          <!-- Real Celebration Stickers: Bubu Dudu Celebrate + Cat Kiss -->
+          <div class="celebration-stickers-row">
+            <img src="stickers/bubu-dudu-celebrate.gif" alt="Bubu Dudu Celebrate" class="celeb-sticker-gif">
+            <img src="stickers/cat-kiss.gif" alt="Cats Kissing" class="celeb-sticker-gif">
+            <img src="stickers/bubu-dudu-cuddle.gif" alt="Bubu Dudu Cuddle" class="celeb-sticker-gif">
+          </div>
+
+          <h1 class="celebration-big-yay">YAYYYYYYY 😭💜💙</h1>
+          <h2 class="celebration-sub-title">Love youuu ra bangrammmmm so muchhhh ❤️😭🫂</h2>
+
+          <div class="celebration-words-box">
+            <p class="celeb-p">Distance entha unna...<br>naa heart lo nuvvu always close ga untav. ❤️</p>
+            <p class="celeb-p highlight-celeb">Thank you for being you.</p>
+
+            <div class="color-recap-box">
+              <p class="recap-line">Nee colour purple... <strong class="purple-bold">💜</strong></p>
+              <p class="recap-line">Naa colour blue... <strong class="blue-bold">💙</strong></p>
+              <p class="recap-line grand-our-color">Kaani mana colour... <strong class="our-bold">💜💙 US 💜💙</strong></p>
+            </div>
+
+            <!-- Giant Pulsing Heartbeat text -->
+            <div class="giant-heartbeat-box heartbeat-infinite">
+              <h2 class="giant-heartbeat-text">Love youuu ra bangrammmmm so muchhhh 💜💙</h2>
+            </div>
+          </div>
+
+          <!-- ==============================================
+               FINAL STICKER SCENE (At the very bottom)
+               Bubu & Dudu + Real Cats Reunion & Kiss
+               ============================================== -->
+          <div class="final-sticker-scene">
+            <div class="scene-stars">
+              <span>✨</span>
+              <span>⭐</span>
+              <span>✨</span>
+            </div>
+
+            <!-- Animated Bubu & Dudu Reunion -->
+            <div class="love-reunion-stage">
+              <img src="stickers/bubu-dudu-kiss.gif" alt="Bubu and Dudu Sweet Kiss" class="final-reunion-gif">
+            </div>
+
+            <div class="final-scene-texts">
+              <h3 class="final-quote">“Come here 🫂❤️”</h3>
+              <p class="final-promise">One day, no distance.</p>
+              <h2 class="final-banner gradient-text">Just us. 💜💙</h2>
+            </div>
+          </div><!-- /final-sticker-scene -->
+
+        </div><!-- /celebration-card -->
+      </section>
+
+    </main><!-- /main-website -->
+  </form><!-- /love-app -->
+
+</body>
+</html>

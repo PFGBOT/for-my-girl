@@ -1,0 +1,1812 @@
+/* ============================================================
+   FOR MY BANGARAMM 💜💙 OUR LITTLE WORLD
+   Strictly HTML5 + CSS3 Only • Mobile First • Romantic Aesthetics
+   Theme: 💜 HER PURPLE + 💙 MY BLUE = 💜💙 OUR WORLD
+   Featuring Real Bubu Dudu & Peach Goma Cute Cat Stickers
+   ============================================================ */
+
+/* CSS RESET & CORE VARIABLES */
+:root {
+  /* Her Purple Palette */
+  --her-lavender: #E6E6FA;
+  --her-lilac: #DCD0FF;
+  --her-pastel-purple: #B39DDB;
+  --her-violet: #9D4EDD;
+  --her-amethyst: #7B2CBF;
+  --her-deep-purple: #3C096C;
+  --her-darkest-purple: #240046;
+
+  /* My Blue Palette */
+  --my-baby-blue: #D9F0FF;
+  --my-sky-blue: #90E0EF;
+  --my-periwinkle: #CCCCFF;
+  --my-soft-blue: #48CAE4;
+  --my-vibrant-blue: #00B4D8;
+  --my-deep-blue: #0077B6;
+  --my-midnight-blue: #03045E;
+  --my-darkest-blue: #0A1128;
+
+  /* Accent & Atmosphere */
+  --tiny-pink: #FF8FAB;
+  --cream-paper: #FAF7F2;
+  --cream-paper-border: #E8DCCF;
+  --text-dark: #2B1E3A;
+  --text-muted: #5C4A72;
+  --text-light: #F8F9FA;
+
+  /* Gradients */
+  --grad-our-world: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 40%, #00B4D8 75%, #48CAE4 100%);
+  --grad-light-world: linear-gradient(135deg, #E6E6FA 0%, #DCD0FF 35%, #D9F0FF 70%, #90E0EF 100%);
+  --grad-night-sky: linear-gradient(150deg, #10002B 0%, #240046 45%, #0A1128 100%);
+  --grad-glow-card: linear-gradient(135deg, rgba(157, 78, 221, 0.18) 0%, rgba(0, 180, 216, 0.18) 100%);
+
+  /* Fonts */
+  --font-handwriting: 'Caveat', cursive, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--her-darkest-purple);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--grad-night-sky);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hidden inputs for pure CSS state machine */
+.hidden-radio {
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: -10;
+}
+
+/* ============================================================
+   AMBIENT FLOATING PARTICLES & STARS
+   ============================================================ */
+.ambient-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  font-size: clamp(14px, 3vw, 24px);
+  opacity: 0.35;
+  filter: drop-shadow(0 0 6px rgba(157, 78, 221, 0.5));
+  animation: floatAmbient 18s linear infinite;
+}
+
+.p1 { top: 12%; left: 8%; animation-duration: 22s; animation-delay: 0s; }
+.p2 { top: 28%; right: 10%; animation-duration: 25s; animation-delay: 3s; }
+.p3 { top: 45%; left: 14%; animation-duration: 19s; animation-delay: 7s; }
+.p4 { top: 62%; right: 15%; animation-duration: 24s; animation-delay: 1s; }
+.p5 { top: 78%; left: 10%; animation-duration: 26s; animation-delay: 5s; }
+.p6 { top: 88%; right: 8%; animation-duration: 21s; animation-delay: 2s; }
+.p7 { top: 35%; left: 85%; animation-duration: 23s; animation-delay: 8s; }
+.p8 { top: 50%; right: 80%; animation-duration: 28s; animation-delay: 4s; }
+.p9 { top: 15%; right: 35%; animation-duration: 20s; animation-delay: 6s; }
+.p10 { top: 75%; left: 45%; animation-duration: 27s; animation-delay: 9s; }
+
+@keyframes floatAmbient {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-20vh) rotate(360deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   GLASSMORPHISM & COMMON CARDS
+   ============================================================ */
+.glass-card {
+  background: rgba(36, 0, 70, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(157, 78, 221, 0.35);
+  border-top-color: rgba(224, 170, 255, 0.5);
+  border-bottom-color: rgba(0, 180, 216, 0.3);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 
+              0 0 25px rgba(157, 78, 221, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  padding: clamp(24px, 5vw, 40px);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 580px;
+}
+
+/* ============================================================
+   SECTION 1: SECRET PASSCODE SCREEN (1727)
+   ============================================================ */
+.passcode-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: radial-gradient(circle at center, #2A0845 0%, #17002E 60%, #080D21 100%);
+  transition: opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1),
+              transform 1.2s cubic-bezier(0.77, 0, 0.175, 1),
+              visibility 1.2s;
+}
+
+.passcode-bg-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.passcode-bg-stars .star {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0.6;
+  animation: pulseStar 3s ease-in-out infinite alternate;
+}
+
+.star.s1 { top: 10%; left: 12%; animation-delay: 0.2s; }
+.star.s2 { top: 15%; right: 14%; animation-delay: 1.1s; }
+.star.s3 { top: 82%; left: 10%; animation-delay: 0.7s; }
+.star.s4 { top: 85%; right: 12%; animation-delay: 1.8s; }
+.star.s5 { top: 48%; left: 6%; animation-delay: 2.2s; }
+.star.s6 { top: 52%; right: 8%; animation-delay: 1.4s; }
+.star.s7 { top: 25%; left: 80%; animation-delay: 0.9s; }
+
+@keyframes pulseStar {
+  0% { transform: scale(0.8); opacity: 0.3; }
+  100% { transform: scale(1.2); opacity: 0.8; filter: drop-shadow(0 0 8px #E0AAFF); }
+}
+
+.passcode-header-art {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticker-gif-header {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(157, 78, 221, 0.5));
+}
+
+.keypad-mini-cat {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.passcode-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #FAF7F2, #E0AAFF, #90E0EF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+}
+
+.passcode-subtitle {
+  font-size: 1.05rem;
+  color: var(--her-lavender);
+  margin-bottom: 4px;
+}
+
+.passcode-hint {
+  font-size: 0.85rem;
+  color: var(--my-sky-blue);
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+/* Passcode Indicator Dots */
+.passcode-dots-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.code-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(224, 170, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Keypad Grid */
+.keypad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 290px;
+  margin: 0 auto 16px;
+}
+
+.key-cell {
+  position: relative;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(224, 170, 255, 0.25);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+.key-cell:hover {
+  background: rgba(157, 78, 221, 0.25);
+  border-color: rgba(224, 170, 255, 0.6);
+}
+
+.key-cell:active {
+  transform: scale(0.92);
+  background: rgba(0, 180, 216, 0.3);
+}
+
+.key-num {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+.key-aux {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.key-reset-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(224, 170, 255, 0.3);
+  border-radius: 18px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.key-reset-btn:hover {
+  background: rgba(255, 143, 171, 0.3);
+  border-color: var(--tiny-pink);
+  transform: rotate(-30deg);
+}
+
+/* Keypad Layer Labels */
+.key-lbl {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 18px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Default state: Step 1 labels are active */
+.key-lbl.l1 { display: block; }
+.key-lbl.l2 { display: none; }
+.key-lbl.l3 { display: none; }
+.key-lbl.l4 { display: none; }
+
+/* ============================================================
+   PASSCODE STATE MACHINE (CSS SELECTORS)
+   Target Sequence: 1 -> 7 -> 2 -> 7
+   ============================================================ */
+
+/* STEP 1 SOLVED */
+#s1_corr:checked ~ .passcode-screen .key-lbl.l1 { display: none !important; }
+#s1_corr:checked ~ .passcode-screen .key-lbl.l2 { display: block !important; }
+#s1_corr:checked ~ .passcode-screen .dot-1 {
+  background: var(--her-violet);
+  border-color: var(--her-lavender);
+  box-shadow: 0 0 16px var(--her-violet), inset 0 0 4px #FFFFFF;
+  transform: scale(1.15);
+}
+#s1_corr:checked ~ .passcode-screen .dot-1::after {
+  content: "💜";
+  font-size: 13px;
+}
+
+/* STEP 2 SOLVED */
+#s2_corr:checked ~ .passcode-screen .key-lbl.l2 { display: none !important; }
+#s2_corr:checked ~ .passcode-screen .key-lbl.l3 { display: block !important; }
+#s2_corr:checked ~ .passcode-screen .dot-2 {
+  background: var(--my-vibrant-blue);
+  border-color: var(--my-sky-blue);
+  box-shadow: 0 0 16px var(--my-vibrant-blue), inset 0 0 4px #FFFFFF;
+  transform: scale(1.15);
+}
+#s2_corr:checked ~ .passcode-screen .dot-2::after {
+  content: "💙";
+  font-size: 13px;
+}
+
+/* STEP 3 SOLVED */
+#s3_corr:checked ~ .passcode-screen .key-lbl.l3 { display: none !important; }
+#s3_corr:checked ~ .passcode-screen .key-lbl.l4 { display: block !important; }
+#s3_corr:checked ~ .passcode-screen .dot-3 {
+  background: var(--her-violet);
+  border-color: var(--her-lavender);
+  box-shadow: 0 0 16px var(--her-violet), inset 0 0 4px #FFFFFF;
+  transform: scale(1.15);
+}
+#s3_corr:checked ~ .passcode-screen .dot-3::after {
+  content: "💜";
+  font-size: 13px;
+}
+
+/* STEP 4 SOLVED: UNLOCKED! */
+#s4_corr:checked ~ .passcode-screen {
+  opacity: 0;
+  pointer-events: none !important;
+  visibility: hidden;
+  transform: scale(1.08) translateY(-40px);
+  z-index: -1 !important;
+}
+
+#s4_corr:checked ~ .passcode-screen .dot-4 {
+  background: var(--my-vibrant-blue);
+  border-color: var(--my-sky-blue);
+  box-shadow: 0 0 16px var(--my-vibrant-blue);
+}
+#s4_corr:checked ~ .passcode-screen .dot-4::after {
+  content: "💙";
+  font-size: 13px;
+}
+
+/* Reveal Main Website smoothly */
+#s4_corr:checked ~ .main-website {
+  opacity: 1;
+  pointer-events: auto !important;
+  visibility: visible;
+  animation: revealWebsite 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealWebsite {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* WRONG PASSCODE TRIGGER & SHAKE */
+.wrong-code-alert {
+  display: none;
+  background: rgba(239, 71, 111, 0.2);
+  border: 1px solid rgba(255, 143, 171, 0.6);
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  animation: alertPop 0.3s ease;
+}
+
+.wrong-code-text {
+  font-size: 0.92rem;
+  color: #FFD6E0;
+  margin-bottom: 8px;
+}
+
+.btn-reset-keypad {
+  background: linear-gradient(135deg, var(--her-violet), var(--my-vibrant-blue));
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(157, 78, 221, 0.4);
+}
+
+#s1_err:checked ~ .passcode-screen .keypad-grid,
+#s2_err:checked ~ .passcode-screen .keypad-grid,
+#s3_err:checked ~ .passcode-screen .keypad-grid,
+#s4_err:checked ~ .passcode-screen .keypad-grid {
+  animation: shakeKeypad 0.45s ease-in-out;
+}
+
+#s1_err:checked ~ .passcode-screen .wrong-code-alert,
+#s2_err:checked ~ .passcode-screen .wrong-code-alert,
+#s3_err:checked ~ .passcode-screen .wrong-code-alert,
+#s4_err:checked ~ .passcode-screen .wrong-code-alert {
+  display: block;
+}
+
+#s1_err:checked ~ .passcode-screen .code-dot,
+#s2_err:checked ~ .passcode-screen .code-dot,
+#s3_err:checked ~ .passcode-screen .code-dot,
+#s4_err:checked ~ .passcode-screen .code-dot {
+  border-color: var(--tiny-pink);
+  background: rgba(255, 143, 171, 0.2);
+}
+
+@keyframes shakeKeypad {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+@keyframes alertPop {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.passcode-footer-note {
+  font-size: 0.85rem;
+  color: var(--her-pastel-purple);
+  opacity: 0.85;
+}
+
+/* ============================================================
+   MAIN WEBSITE LAYOUT & SECTIONS
+   ============================================================ */
+.main-website {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 1s ease;
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  width: 100%;
+  padding: clamp(40px, 8vw, 80px) 16px;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 20px;
+}
+
+.fullscreen-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Romantic Gradient Typography */
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E0AAFF 40%, #90E0EF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn-wrap {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-romantic {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 40%, #00B4D8 100%);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(157, 78, 221, 0.4), 
+              0 2px 10px rgba(0, 180, 216, 0.3),
+              inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.btn-romantic:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(157, 78, 221, 0.55), 
+              0 4px 15px rgba(0, 180, 216, 0.45);
+  filter: brightness(1.1);
+}
+
+.btn-romantic:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* ============================================================
+   SECTION 2: OPENING (Heyyy bangarammm)
+   ============================================================ */
+.bubu-dudu-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.bubu-sticker-box, .dudu-sticker-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showcase-gif {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.center-hug-sticker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showcase-gif-center {
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(157, 78, 221, 0.55));
+}
+
+.sticker-badge {
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-top: 4px;
+}
+
+.purple-badge {
+  background: rgba(157, 78, 221, 0.3);
+  color: var(--her-lavender);
+  border: 1px solid var(--her-violet);
+}
+
+.blue-badge {
+  background: rgba(0, 180, 216, 0.3);
+  color: var(--my-sky-blue);
+  border: 1px solid var(--my-vibrant-blue);
+}
+
+.glowing-couple-heart {
+  font-size: 1.6rem;
+  animation: heartPulse 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(157, 78, 221, 0.7));
+  margin-top: -6px;
+}
+
+.main-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.opening-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.15rem;
+  color: var(--her-lavender);
+}
+
+.highlight-text {
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-shadow: 0 0 12px rgba(224, 170, 255, 0.5);
+}
+
+/* ============================================================
+   SECTION 3: BEFORE THE LETTER
+   ============================================================ */
+.before-letter-card {
+  max-width: 520px;
+}
+
+.card-icon-art {
+  margin-bottom: 16px;
+}
+
+.main-card-sticker {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+}
+
+.sub-heading-handwritten {
+  font-family: var(--font-handwriting);
+  font-size: clamp(2.2rem, 6.5vw, 3rem);
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  text-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+}
+
+.gentle-message-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 1.15rem;
+  color: var(--her-lavender);
+}
+
+.heart-highlight {
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.divider-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 6px 0;
+  opacity: 0.7;
+}
+
+.strong-p {
+  color: var(--my-sky-blue);
+  font-weight: 600;
+  font-family: var(--font-handwriting);
+  font-size: 2rem;
+}
+
+/* ============================================================
+   SECTION 4: THE LOVE LETTER (Handwritten Paper Letter)
+   ============================================================ */
+.sec-letter {
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
+.letter-page-container {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.paper-letter {
+  background: var(--cream-paper);
+  background-image: 
+    radial-gradient(rgba(157, 78, 221, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(247, 243, 233, 0.8), rgba(255, 253, 249, 0.95));
+  background-size: 20px 20px, 100% 100%;
+  color: var(--text-dark);
+  border-radius: 20px;
+  padding: clamp(24px, 6vw, 48px);
+  position: relative;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5),
+              0 2px 10px rgba(0, 0, 0, 0.2),
+              inset 0 0 40px rgba(220, 208, 255, 0.2);
+  border: 1px solid var(--cream-paper-border);
+  border-left: 6px solid;
+  border-right: 6px solid;
+  border-image: linear-gradient(to bottom, #9D4EDD, #00B4D8) 1;
+}
+
+.paper-header-seal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.letter-top-sticker {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(157, 78, 221, 0.3));
+}
+
+.in-letter-sticker-row {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0;
+}
+
+.inline-sticker {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.paper-title-area {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.handwritten-letter-title {
+  font-family: var(--font-handwriting);
+  font-size: clamp(2.4rem, 7vw, 3.4rem);
+  color: var(--her-deep-purple);
+  line-height: 1.2;
+}
+
+.letter-date-stamp {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.decorative-border-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #9D4EDD, #00B4D8, transparent);
+  margin: 16px auto 0;
+  max-width: 320px;
+}
+
+.paper-body-text {
+  font-size: clamp(1rem, 2.8vw, 1.15rem);
+  line-height: 1.85;
+  color: #322342;
+}
+
+.letter-para {
+  margin-bottom: 18px;
+  text-align: left;
+  letter-spacing: 0.01em;
+}
+
+.para-highlight {
+  font-weight: 600;
+  color: var(--her-deep-purple);
+  background: linear-gradient(90deg, rgba(224, 170, 255, 0.25), transparent);
+  padding: 4px 10px;
+  border-radius: 8px;
+  border-left: 3px solid var(--her-violet);
+}
+
+/* ============================================================
+   SPECIAL REASSURANCE MOMENT (Purple-Blue Glowing Card)
+   ============================================================ */
+.special-reassurance-card {
+  background: linear-gradient(145deg, #2D094D 0%, #15093A 50%, #081D3D 100%);
+  color: #FFFFFF;
+  border-radius: 24px;
+  padding: clamp(24px, 5vw, 36px);
+  margin: 36px 0;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(157, 78, 221, 0.4),
+              0 0 35px rgba(0, 180, 216, 0.3),
+              inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #C77DFF, #00B4D8) 1;
+  overflow: hidden;
+}
+
+.reassurance-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.r-sparkle {
+  position: absolute;
+  font-size: 18px;
+  opacity: 0.6;
+  animation: pulseStar 2s ease-in-out infinite alternate;
+}
+
+.rs1 { top: 10%; left: 8%; }
+.rs2 { top: 12%; right: 10%; animation-delay: 0.6s; }
+.rs3 { bottom: 12%; left: 8%; animation-delay: 1.2s; }
+.rs4 { bottom: 10%; right: 10%; animation-delay: 1.8s; }
+
+.reassurance-sticker-wrap {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reassurance-main-gif {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 25px rgba(0, 180, 216, 0.45));
+}
+
+.reassurance-pretitle {
+  font-size: 1.1rem;
+  color: var(--her-lavender);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.reassurance-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 5.5vw, 2.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #FFFFFF, #E0AAFF, #90E0EF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+}
+
+.reassurance-promises {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 380px;
+  margin: 0 auto 24px;
+  text-align: left;
+}
+
+.promise-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.05rem;
+}
+
+.promise-item.purple-accent {
+  border-left: 4px solid var(--her-violet);
+}
+
+.promise-item.blue-accent {
+  border-left: 4px solid var(--my-vibrant-blue);
+}
+
+.reassurance-conclusion {
+  margin-top: 18px;
+}
+
+.reassurance-final-line {
+  font-size: clamp(1.15rem, 3.5vw, 1.4rem);
+  line-height: 1.5;
+}
+
+.our-world-gradient {
+  display: block;
+  font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #E0AAFF, #48CAE4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 6px;
+  text-shadow: 0 0 20px rgba(157, 78, 221, 0.6);
+}
+
+.giant-glowing-heart-icon {
+  font-size: 2.8rem;
+  margin-top: 14px;
+  filter: drop-shadow(0 0 16px rgba(157, 78, 221, 0.7));
+}
+
+/* Signature Area with Real Cats */
+.paper-signature-area {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px dashed rgba(157, 78, 221, 0.3);
+  text-align: right;
+}
+
+.signature-sticker-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.signature-cats-gif {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+.signature-tag {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.signature-name {
+  font-family: var(--font-handwriting);
+  font-size: 2.4rem;
+  color: var(--my-deep-blue);
+  line-height: 1.1;
+  margin-top: 4px;
+}
+
+.signature-heart {
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--her-violet);
+}
+
+.letter-bottom-nav {
+  text-align: center;
+  margin-top: 36px;
+}
+
+/* ============================================================
+   SECTION 5: AFTER THE LETTER
+   ============================================================ */
+.after-letter-card {
+  max-width: 540px;
+}
+
+.sleeping-duo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.sleeping-sticker.main-sleep {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+}
+
+.sleeping-sticker.sub-sleep {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+}
+
+.emotional-voice {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTION 6: MUSIC MOMENT (Paper Rings)
+   ============================================================ */
+.sec-music {
+  background: radial-gradient(circle at center, #1B003A 0%, #0F0024 60%, #060B1A 100%);
+}
+
+.music-card {
+  max-width: 520px;
+}
+
+.music-header-sticker {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.music-jump-gif {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(157, 78, 221, 0.5));
+}
+
+.music-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 5.5vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.music-subtitle {
+  font-size: 1.05rem;
+  color: var(--her-lavender);
+  margin-bottom: 24px;
+}
+
+/* Spinning Vinyl Disc Art */
+.vinyl-disc-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.vinyl-disc {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1A1A1A 0%, #0A0A0A 60%, #151515 100%);
+  border: 4px solid #333333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(157, 78, 221, 0.4);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vinyl-groove {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.vinyl-groove.g1 { width: 110px; height: 110px; }
+.vinyl-groove.g2 { width: 80px; height: 80px; }
+
+.vinyl-center-label {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--her-violet), var(--my-vibrant-blue));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.vinyl-heart-icon {
+  font-size: 14px;
+}
+
+.vinyl-song-tag {
+  font-size: 7px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+
+.spin-slow {
+  animation: spinRecord 12s linear infinite;
+}
+
+@keyframes spinRecord {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.song-info-box {
+  margin-bottom: 20px;
+}
+
+.song-track-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.song-lyrics-snippet {
+  font-size: 0.95rem;
+  color: var(--her-lavender);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Audio Player */
+.audio-player-container {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(224, 170, 255, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 24px rgba(157, 78, 221, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.romantic-audio {
+  width: 100%;
+  height: 54px;
+  outline: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  border-radius: 12px;
+}
+
+.audio-instructions-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--my-sky-blue);
+  text-align: left;
+}
+
+/* Floating Music Notes */
+.music-floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.music-note {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0.4;
+  animation: floatMusic 10s ease-in-out infinite;
+}
+
+.mn1 { top: 20%; left: 15%; animation-duration: 8s; }
+.mn2 { top: 30%; right: 18%; animation-duration: 11s; animation-delay: 1s; }
+.mn3 { top: 60%; left: 12%; animation-duration: 9s; animation-delay: 2s; }
+.mn4 { top: 70%; right: 14%; animation-duration: 12s; animation-delay: 3s; }
+.mn5 { top: 85%; left: 25%; animation-duration: 7s; }
+.mn6 { top: 15%; right: 35%; animation-duration: 10s; }
+
+@keyframes floatMusic {
+  0% { transform: translateY(0) scale(0.9); opacity: 0.2; }
+  50% { transform: translateY(-30px) scale(1.1); opacity: 0.6; }
+  100% { transform: translateY(0) scale(0.9); opacity: 0.2; }
+}
+
+/* ============================================================
+   SECTION 7: PROPOSAL (Will you be mine?)
+   ============================================================ */
+.sec-proposal {
+  background: radial-gradient(circle at center, #2E0854 0%, #17002E 50%, #0A1128 100%);
+}
+
+.proposal-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.color-identity-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.identity-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.identity-card.card-her { border-color: var(--her-violet); }
+.identity-card.card-him { border-color: var(--my-vibrant-blue); }
+.identity-card.card-together { 
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.25), rgba(0, 180, 216, 0.25));
+  border-color: #FFFFFF;
+}
+
+.id-tag {
+  font-size: 0.78rem;
+  color: var(--her-lavender);
+  display: block;
+}
+
+.id-color {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.purple-text { color: #E0AAFF; }
+.blue-text { color: #90E0EF; }
+.together-text { 
+  background: linear-gradient(135deg, #E0AAFF, #90E0EF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.id-plus, .id-equals {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Giant Transition Heart with Orbiting Ring */
+.giant-proposal-heart-wrapper {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.giant-glowing-proposal-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: colorCycleHeart 6s infinite alternate;
+}
+
+.proposal-bubu-heart-gif {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(224, 170, 255, 0.7));
+}
+
+@keyframes colorCycleHeart {
+  0% {
+    filter: drop-shadow(0 0 30px #9D4EDD);
+    transform: scale(0.95);
+  }
+  50% {
+    filter: drop-shadow(0 0 35px #00B4D8);
+    transform: scale(1.05);
+  }
+  100% {
+    filter: drop-shadow(0 0 45px #C77DFF) drop-shadow(0 0 25px #48CAE4);
+    transform: scale(1);
+  }
+}
+
+.orbiting-ring-outer {
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  border: 2px dashed rgba(224, 170, 255, 0.4);
+  animation: rotateRing 10s linear infinite;
+  pointer-events: none;
+}
+
+.sparkling-diamond {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  filter: drop-shadow(0 0 8px #FFFFFF);
+}
+
+@keyframes rotateRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Narrative Flow */
+.proposal-narrative-flow {
+  margin-bottom: 36px;
+}
+
+.narrative-line {
+  font-size: 1.25rem;
+  color: var(--her-lavender);
+  margin-bottom: 8px;
+}
+
+.vow-lines-group {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vow-line {
+  font-size: 1.15rem;
+  color: #E2D9F3;
+  font-style: italic;
+}
+
+.grand-proposal-question {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 7.5vw, 3.4rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-top: 24px;
+  text-shadow: 0 0 25px rgba(255, 143, 171, 0.6), 0 0 40px rgba(157, 78, 221, 0.7);
+  animation: heartBeatPulse 1.8s infinite;
+}
+
+/* Proposal Answer Buttons */
+.proposal-answers-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.choice-anchor {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-proposal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.btn-yesss {
+  background: linear-gradient(135deg, #E056FD, #686DE0);
+  box-shadow: 0 10px 30px rgba(224, 86, 253, 0.45);
+}
+
+.btn-obviously {
+  background: linear-gradient(135deg, #00B4D8, #7B2CBF);
+  box-shadow: 0 10px 30px rgba(0, 180, 216, 0.45);
+}
+
+.btn-proposal:hover {
+  transform: translateY(-4px) scale(1.06);
+  filter: brightness(1.15);
+  box-shadow: 0 16px 40px rgba(157, 78, 221, 0.6);
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+
+.btn-proposal:active {
+  transform: translateY(1px) scale(0.97);
+  color: #FFFFFF !important;
+}
+
+/* ============================================================
+   SECTION 8: FINAL CELEBRATION
+   ============================================================ */
+.sec-celebration {
+  background: radial-gradient(circle at center, #260042 0%, #120024 55%, #050A1A 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+.celebration-card {
+  max-width: 650px;
+  position: relative;
+  z-index: 3;
+}
+
+.celebration-stickers-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.celeb-sticker-gif {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 14px;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+  animation: cuteBounce 2s infinite ease-in-out;
+}
+
+.celeb-sticker-gif:nth-child(2) { animation-delay: 0.3s; }
+.celeb-sticker-gif:nth-child(3) { animation-delay: 0.6s; }
+
+.celebration-big-yay {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 8vw, 3.8rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #FFFFFF, #E0AAFF, #90E0EF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  animation: heartBeatPulse 1.5s infinite;
+}
+
+.celebration-sub-title {
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.celebration-words-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 1.15rem;
+  color: var(--her-lavender);
+  margin-bottom: 36px;
+}
+
+.celeb-p {
+  line-height: 1.7;
+}
+
+.highlight-celeb {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.color-recap-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 16px 20px;
+  border: 1px solid rgba(224, 170, 255, 0.3);
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.purple-bold { color: #E0AAFF; font-size: 1.3rem; }
+.blue-bold { color: #90E0EF; font-size: 1.3rem; }
+.grand-our-color {
+  font-size: 1.35rem;
+  margin-top: 6px;
+}
+.our-bold {
+  background: linear-gradient(135deg, #E0AAFF, #90E0EF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
+}
+
+/* Giant Heartbeat Box */
+.giant-heartbeat-box {
+  margin: 20px 0;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.3), rgba(0, 180, 216, 0.3));
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.giant-heartbeat-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4.5vw, 2rem);
+  color: #FFFFFF;
+  text-shadow: 0 0 20px rgba(157, 78, 221, 0.8), 0 0 30px rgba(0, 180, 216, 0.8);
+}
+
+.heartbeat-infinite {
+  animation: heartBeatPulse 1.4s ease-in-out infinite;
+}
+
+/* ============================================================
+   FINAL STICKER SCENE (At the very bottom)
+   Bubu & Dudu Reunion & Kiss
+   ============================================================ */
+.final-sticker-scene {
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px dashed rgba(224, 170, 255, 0.3);
+  position: relative;
+}
+
+.scene-stars {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.love-reunion-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  margin-bottom: 18px;
+}
+
+.final-reunion-gif {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(157, 78, 221, 0.8));
+  animation: heartBeatPulse 2s infinite ease-in-out;
+}
+
+.final-quote {
+  font-family: var(--font-handwriting);
+  font-size: 2.2rem;
+  color: var(--her-lavender);
+}
+
+.final-promise {
+  font-size: 1.15rem;
+  color: #FFFFFF;
+  margin: 4px 0 8px;
+}
+
+.final-banner {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6.5vw, 2.8rem);
+  font-weight: 700;
+}
+
+/* ============================================================
+   CELEBRATION FIREWORKS & CONFETTI
+   ============================================================ */
+.celebration-fireworks-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti {
+  position: absolute;
+  font-size: 20px;
+  animation: confettiFall 7s linear infinite;
+  opacity: 0.8;
+}
+
+.c1 { left: 8%; animation-duration: 6s; animation-delay: 0s; }
+.c2 { left: 16%; animation-duration: 8s; animation-delay: 1.5s; }
+.c3 { left: 25%; animation-duration: 7s; animation-delay: 0.5s; }
+.c4 { left: 36%; animation-duration: 9s; animation-delay: 2s; }
+.c5 { left: 45%; animation-duration: 6.5s; animation-delay: 0.8s; }
+.c6 { left: 56%; animation-duration: 8.5s; animation-delay: 2.5s; }
+.c7 { left: 66%; animation-duration: 7s; animation-delay: 1s; }
+.c8 { left: 75%; animation-duration: 9.5s; animation-delay: 3s; }
+.c9 { left: 84%; animation-duration: 6s; animation-delay: 0.2s; }
+.c10 { left: 92%; animation-duration: 8s; animation-delay: 1.8s; }
+.c11 { left: 4%; animation-duration: 7.5s; animation-delay: 2.2s; }
+.c12 { left: 50%; animation-duration: 9s; animation-delay: 3.5s; }
+
+@keyframes confettiFall {
+  0% {
+    top: -40px;
+    transform: rotate(0deg) translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(180deg) translateX(25px);
+  }
+  100% {
+    top: 105%;
+    transform: rotate(360deg) translateX(-25px);
+    opacity: 0.2;
+  }
+}
+
+/* CSS Fireworks */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: fireworkExplosion 2.5s infinite ease-out;
+}
+
+.fw-1 {
+  top: 25%;
+  left: 20%;
+  animation-delay: 0.3s;
+}
+
+.fw-2 {
+  top: 35%;
+  right: 22%;
+  animation-delay: 1.2s;
+}
+
+.fw-3 {
+  top: 15%;
+  left: 60%;
+  animation-delay: 2s;
+}
+
+@keyframes fireworkExplosion {
+  0% {
+    box-shadow: 0 0 #FFFFFF;
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 
+      0 -45px #9D4EDD, 35px -35px #00B4D8, 45px 0 #E0AAFF, 
+      35px 35px #90E0EF, 0 45px #9D4EDD, -35px 35px #00B4D8, 
+      -45px 0 #E0AAFF, -35px -35px #90E0EF, 0 -70px #FFFFFF,
+      50px -50px #C77DFF, -50px -50px #48CAE4;
+    opacity: 1;
+    transform: scale(1.6);
+  }
+  100% {
+    box-shadow: 
+      0 -60px transparent, 50px -50px transparent, 60px 0 transparent, 
+      50px 50px transparent, 0 60px transparent, -50px 50px transparent, 
+      -60px 0 transparent, -50px -50px transparent;
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* ============================================================
+   SHARED KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes heartBeatPulse {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.08); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.12); }
+  70% { transform: scale(1); }
+}
+
+@keyframes cuteBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+/* Floating Stickers on Sections */
+.sec-stickers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sticker-float {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.35;
+  filter: drop-shadow(0 0 6px rgba(157, 78, 221, 0.4));
+  animation: floatDrift 8s ease-in-out infinite alternate;
+}
+
+.sf1 { top: 15%; left: 8%; animation-delay: 0s; }
+.sf2 { top: 25%; right: 10%; animation-delay: 1.5s; }
+.sf3 { bottom: 20%; left: 12%; animation-delay: 3s; }
+.sf4 { bottom: 15%; right: 14%; animation-delay: 0.8s; }
+.sf5 { top: 50%; right: 6%; animation-delay: 2.2s; }
+
+@keyframes floatDrift {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-24px) rotate(12deg); }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (Mobile First)
+   ============================================================ */
+@media (max-width: 480px) {
+  .passcode-card {
+    padding: 20px 14px;
+  }
+
+  .passcode-header-art {
+    width: 110px;
+    height: 110px;
+  }
+
+  .key-cell {
+    height: 54px;
+  }
+
+  .key-num {
+    font-size: 1.25rem;
+  }
+
+  .paper-letter {
+    padding: 20px 16px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+  }
+
+  .special-reassurance-card {
+    padding: 20px 14px;
+  }
+
+  .reassurance-sticker-wrap {
+    width: 120px;
+    height: 120px;
+  }
+
+  .reassurance-promises {
+    font-size: 0.95rem;
+  }
+
+  .proposal-answers-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .btn-proposal {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bubu-dudu-showcase {
+    gap: 8px;
+  }
+
+  .showcase-gif {
+    width: 72px;
+    height: 72px;
+  }
+
+  .showcase-gif-center {
+    width: 85px;
+    height: 85px;
+  }
+
+  .sleeping-sticker.main-sleep {
+    width: 110px;
+    height: 110px;
+  }
+
+  .sleeping-sticker.sub-sleep {
+    width: 90px;
+    height: 90px;
+  }
+
+  .celeb-sticker-gif {
+    width: 70px;
+    height: 70px;
+  }
+}
